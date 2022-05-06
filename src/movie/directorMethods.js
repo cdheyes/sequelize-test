@@ -1,28 +1,28 @@
 const Director = require("./directorTable");
 
-exports.addDirector = async (DirectorObj) => {
+exports.addDirector = async (directorObj) => {
 	try {
-		await Director.create(DirectorObj);
+		await Director.create(directorObj);
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-exports.deleteDirector = async (DirectorObj) => {
+exports.deleteDirector = async (directorObj) => {
 	try {
 		await Director.destroy({
-			where: { name: DirectorObj.name },
+			where: { name: directorObj.name },
 		});
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-exports.updateDirector = async (DirectorObj) => {
+exports.updateDirector = async (directorObj) => {
 	try {
 		await Director.update(
-			{ title: DirectorObj.title },
-			{ where: { name: DirectorObj.name } }
+			{ title: directorObj.title },
+			{ where: { name: directorObj.name } }
 		);
 	} catch (error) {
 		console.log(error);
@@ -37,15 +37,15 @@ exports.listDirectors = async () => {
 	}
 };
 
-exports.findDirector = async (DirectorObj) => {
+exports.findDirector = async (directorObj) => {
 	try {
 		let found = await Director.findOne({
-			where: { name: DirectorObj.name },
+			where: { name: directorObj.name },
 		});
 		if (found === null) {
 			console.log("Not found!");
 		} else {
-			console.log(DirectorObj.name + " is in the DB!");
+			console.log(directorObj.name + " is in the DB!");
 		}
 	} catch (error) {
 		console.log(error);

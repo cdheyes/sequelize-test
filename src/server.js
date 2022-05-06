@@ -21,9 +21,9 @@ const {
 const app = async (yargsObj) => {
 	try {
 		await sequelize.sync();
-
-		// movie CRUD
-
+		//
+		// movie CRUD operations work OK
+		//
 		if (yargsObj.addM) {
 			//add movie to database
 			await addMovie({ title: yargsObj.title, actor: yargsObj.actor });
@@ -40,8 +40,10 @@ const app = async (yargsObj) => {
 			//finds a movie
 			await findMovie({ title: yargsObj.title });
 		}
-
+		//
 		// director CRUD
+		// WHY IT NO WORK???
+		//
 		else if (yargsObj.addD) {
 			//add director to database
 			await addDirector({ name: yargsObj.name, title: yargsObj.title });

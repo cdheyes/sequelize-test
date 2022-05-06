@@ -10,4 +10,8 @@ node src/server.js --updateM --title "Star Wars" --actor "Vader"
 node src/server.js --updateM --title "Star Wars" --actor "Solo"
 node src/server.js --findM --title "Star Wars"
 
+node src/server.js --listD
 node src/server.js --addD --name "George Lucas" --title "Star Wars"
+node src/server.js --addD --name "Irvin Kershner" --title "Empire"
+node src/server.js --deleteD --name "George Lucas"
+node src/server.js --findD --name "George Lucas"
