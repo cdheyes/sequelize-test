@@ -30,8 +30,6 @@ const app = async (yargsObj) => {
 		} else {
 			console.log("Incorrect command");
 		}
-		// always list for debug
-		// console.log(await listMovies());
 	} catch (error) {
 		console.log(error);
 	}

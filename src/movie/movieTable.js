@@ -6,6 +6,7 @@ const Movie = sequelize.define("Movie", {
 		type: DataTypes.STRING,
 		allowNull: false,
 		unique: true,
+		primaryKey: true,
 	},
 	actor: {
 		type: DataTypes.STRING,
@@ -13,14 +14,32 @@ const Movie = sequelize.define("Movie", {
 	},
 });
 
-// const Cinema = sequelize.define("Cinema", {
-// 	town: {
-// 		type: DataTypes.STRING,
-// 		allowNull: false,
-// 		unique: true,
-// 	},
-// });
+const Director = sequelize.define("Director", {
+	name: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		unique: true,
+	},
+	title: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		unique: true,
+	},
+});
 
-// module.exports = Cinema;
+Movie.hasOne(Director);
+Director.belongsTo(Movie, {
+	foreignKey: "title",
+});
 
+// sequelize
+// 	.sync({ alter: true })
+// 	.then(() => {
+// 		//working with updated table
+// 	})
+// 	.catch((error) => {
+// 		console.log(error);
+// 	});
+
+module.exports = Director;
 module.exports = Movie;
