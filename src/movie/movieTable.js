@@ -14,32 +14,9 @@ const Movie = sequelize.define("Movie", {
 	},
 });
 
-const Director = sequelize.define("Director", {
-	name: {
-		type: DataTypes.STRING,
-		allowNull: false,
-		unique: true,
-	},
-	title: {
-		type: DataTypes.STRING,
-		allowNull: false,
-		unique: true,
-	},
-});
+// Movie.hasOne(Director);
+// Director.belongsTo(Movie, {
+// 	foreignKey: "title",
+// });
 
-Movie.hasOne(Director);
-Director.belongsTo(Movie, {
-	foreignKey: "title",
-});
-
-// sequelize
-// 	.sync({ alter: true })
-// 	.then(() => {
-// 		//working with updated table
-// 	})
-// 	.catch((error) => {
-// 		console.log(error);
-// 	});
-
-module.exports = Director;
 module.exports = Movie;
