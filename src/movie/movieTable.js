@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, INTEGER } = require("sequelize");
 const { sequelize } = require("../db/connection");
 
 const Director = require("./directorTable");
@@ -13,15 +13,11 @@ const Movie = sequelize.define("Movie", {
 		type: DataTypes.STRING,
 		defaultValue: "Not specified",
 	},
-	//
-	// check if this works
-	//
-	// movie_id: { type: INTEGER },
 });
 
-Movie.hasOne(Director);
-Director.belongsTo(Movie, {
-	foreignKey: movie_id,
-});
+// Movie.hasOne(Director);
+// Director.belongsTo(Movie, {
+// 	foreignKey: title,
+// });
 
 module.exports = Movie;

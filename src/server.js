@@ -1,5 +1,18 @@
+// movie CRUD operations work OK
+// director CRUD operations DO NOT work
+
 const yargs = require("yargs");
 const { sequelize } = require("./db/connection");
+
+const Director = require("./movie/directorTable");
+const Movie = require("./movie/movieTable");
+
+// not sure if this is correct?
+
+Movie.hasOne(Director);
+Director.belongsTo(Movie, {
+	foreignKey: Director.title,
+});
 
 //imports for CRUD functions
 const {

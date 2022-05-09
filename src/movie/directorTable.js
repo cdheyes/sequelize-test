@@ -1,6 +1,8 @@
 const { DataTypes, INTEGER } = require("sequelize");
 const { sequelize } = require("../db/connection");
 
+const Movie = require("./movieTable");
+
 const Director = sequelize.define("Director", {
 	name: {
 		type: DataTypes.STRING,
@@ -12,10 +14,6 @@ const Director = sequelize.define("Director", {
 		allowNull: false,
 		unique: true,
 	},
-	//
-	// check if this works
-	//
-	// movie_id: { type: INTEGER },
 });
 
 module.exports = Director;
